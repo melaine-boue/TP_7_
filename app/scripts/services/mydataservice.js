@@ -58,7 +58,7 @@ angular.module('tp7App')
       //Add personne in database
       var req = {
         method: 'POST',
-        url: '192.168.1.14:8080/rest/opower/add',
+        url: 'localhost:8080/rest/opower/add',
         headers: {
           'Content-Type': "application/json"
         },
@@ -78,7 +78,7 @@ angular.module('tp7App')
 
       $http({
         method: 'GET',
-        url: '192.168.1.14:8080/rest/opower/persons'
+        url: 'localhost:8080/rest/opower/persons'
       }).then(function successCallback(response) {
         this.personnes = response.data
         console.log(response);
