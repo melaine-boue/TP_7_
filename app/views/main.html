@@ -1,0 +1,100 @@
+
+
+
+<div class="container">
+
+    <div>
+      <input class="btn btn-primary" type="button" value="Ajouter" ng-click="ajouterPersonne()" />
+    </div>
+  <br>
+    <div class="row">
+
+
+        <div class="col-md-6 col-lg-6">
+
+                <div class="panel panel-primary">
+                        <div class="panel-heading"><div class="panel-title">Liste des personnes</div></div>
+
+
+                        <div class="panel-body">
+                            <ul class="list-group">
+                                <li
+                                style="cursor:pointer"
+                                title="Cliquer pour voir les details"
+                                ng-click="getInfo($index);setVisible(true);"
+                                ng-mouseover=""
+                                class="list-group-item" ng-repeat="personne in personnes"
+
+                                >
+                                    {{personne.name}} {{personne.prenom}}
+                                </li>
+
+                            </ul>
+
+                        </div>
+                </div>
+
+
+
+        </div>
+
+
+        <div class="col-md-6 col-lg-6" ng-if="afficherDetails">
+
+                <div class="panel panel-primary">
+                        <div class="panel-heading"><div class="panel-title">Details : {{personne.prenom}} {{personne.name}} </div></div>
+
+                        <div class="panel-body">
+
+                            <table>
+                                <tr>
+                                    <td>Nom </td>
+                                    <td>:</td>
+                                    <td><strong>{{personne.name}}</strong></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Prenom </td>
+                                    <td>:</td>
+                                    <td><strong>{{personne.prenom}}</strong></td>
+                                </tr>
+
+                            </table>
+
+                            <!-- -->
+                            <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <div class="panel-title">Home : </div>
+                                    </div>
+
+                                    <div class="panel-body">
+                                        <ul class="list-group">
+                                            <li ng-repeat="home in personne.homes" class="list-group-item"> {{home.name}} </li>
+                                        </ul>
+                                    </div>
+                            </div>
+
+                            <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <div class="panel-title">Electronic Devices : </div>
+                                    </div>
+
+                                    <div class="panel-body">
+                                        <ul class="list-group">
+                                            <li ng-repeat="electronicDevice in personne.electronicDevices" class="list-group-item"> {{electronicDevice}}  </li>
+                                        </ul>
+                                    </div>
+                            </div>
+
+                        </div>
+                </div>
+        </div>
+
+
+
+
+    </div>
+
+
+
+</div>

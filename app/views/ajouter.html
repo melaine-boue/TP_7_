@@ -1,0 +1,94 @@
+<div class="container">
+  <div class="row">
+
+        <div>
+
+            Nom<input type="text"  class="form-control" placeholder="Name" ng-model="name">
+            Prenom<input type="text"  class="form-control" placeholder="Prenom"  ng-model="prenom">
+
+          <input class="btn btn-primary" type="button" value="Afficher Electronic devices" ng-click="showElectroDevice()"/>
+          <input class="btn btn-primary" type="button" value="Afficher Homes" ng-click="showHome()" />
+
+          <hr/>
+          <div class="panel panel-primary" ng-if="afficherHome">
+                <div class="panel-heading"><div class="panel-title">Homes</div></div>
+
+                <hr/>
+                <input type="text"  class="form-control" placeholder="Name" ng-model="home_name">
+
+                <hr/>
+                <input class="btn btn-primary" type="button" value="Afficher Heater" ng-click="showHeater()"/>
+
+
+                <div class="panel-body" ng-if="afficherHeater">
+
+
+                    <div class="panel panel-primary">
+                            <div class="panel-heading"><div class="panel-title">Heaters</div></div>
+                            <div class="panel-body">
+                                <div>
+                                    <input type="text" class="form-control" placeholder="Name" ng-model="nomHeater">
+                                    <input class="btn btn-primary" type="button" value="Ajouter Heater" ng-click="addHeater()"  />
+                                </div>
+
+                              <br>
+                                <ul class="list-group">
+                                    <li class="list-group-item" ng-repeat="heater in heaters" >
+                                        {{heater}}
+                                    </li>
+                                </ul>
+                            </div>
+                    </div>
+
+                    <input class="btn btn-primary" type="button" value="Ajouter Home" ng-click="addHome()"/>
+
+
+                  <ul class="list-group">
+                      <li class="list-group-item" ng-repeat="home in homes" >
+                        name :{{home.name}} ( heaters ({{home.heater.length}}) )
+                      </li>
+                    </ul>
+
+                </div>
+        </div>
+
+
+
+
+          <!-----Electronic Device---------->
+          <div class="panel panel-primary" ng-if="afficherElectroDevice">
+            <div class="panel-heading"><div class="panel-title">Electronic Devices</div></div>
+            <div class="panel-body">
+              <div>
+                <input type="text" class="form-control" placeholder="Name" ng-model="nouvelElectronicDevice">
+                <input class="btn btn-primary" type="button" value="Ajouter Electronic Device" ng-click="addElectronicDevice()"  />
+              </div>
+
+              <br>
+              <ul class="list-group">
+                <li class="list-group-item" ng-repeat="electronicDevice in electronicDevices" >
+                  {{electronicDevice}}
+                </li>
+              </ul>
+            </div>
+          </div>
+
+
+
+
+
+
+          <input class="btn btn-primary" type="button" value="Ajouter Person" ng-click="ajouterPersonne()"></button>
+
+          <ul class="list-group">
+            <li class="list-group-item" ng-repeat="personne in personnes" >
+              Name:{{personne.name}}  Prenom:{{personne.name}}  ( heaters({{$scope.heaters.length}})  electronicDevice({{$scope.electronicDevices.length}}) )
+            </li>
+          </ul>
+
+
+        </div>
+
+
+  </div>
+</div>
