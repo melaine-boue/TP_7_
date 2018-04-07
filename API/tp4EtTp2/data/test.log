@@ -1,0 +1,3 @@
+/*C3*/SET SCHEMA PUBLIC
+alter table Device add column power varchar(255)
+DISCONNECT
